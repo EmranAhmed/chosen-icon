@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="css/example.css"/>
+    <link rel="stylesheet" href="chosen/chosen.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="chosenIcon/chosenIcon.css"/>
+
+    <title>Chosen Icon Plugin</title>
+
+</head>
+<body>
+
+<div id="container">
+    <form>
+        <h1>Chosen Icon</h1>
+
+        <p>Extends the functionality of the <a href="http://harvesthq.github.com/chosen/">chosen plugin by Harvest</a>
+            to display font awesome icons in dropdown menus</p>
+
+        Download source from <a href="https://github.com/EmranAhmed/chosen-icon">https://github.com/EmranAhmed/chosen-icon</a>
+
+        <h2>Example</h2>
+        <select data-placeholder="Choose a Project..." class="icon-select" style="width:350px;" tabindex="2">
+            <option data-icon="fa-download">Project A</option>
+            <option data-icon="fa-coffee">Project B</option>
+            <option data-icon="fa-cloud">Project C</option>
+            <option data-icon="fa-fighter-jet">Project D</option>
+            <option data-icon="fa-male" title="title-test-class">Project E</option>
+        </select>
+    </form>
+
+    <h2>Usage</h2>
+
+    <p>Add attribute <code>data-icon</code> to <code>&lt;option&gt;</code> items with the name of font awesome css class name.
+    </p>
+
+  <pre>
+      <code>
+          &lt;select data-placeholder=&quot;Choose a Project...&quot; class=&quot;icon-select&quot; style=&quot;width:350px;&quot;
+          tabindex=&quot;2&quot;&gt;
+          &lt;option data-icon=&quot;fa-download&quot;&gt;Project A&lt;/option&gt;
+          &lt;option data-icon=&quot;fa-cloud&quot;&gt;Project B&lt;/option&gt;
+          &lt;option data-icon=&quot;fa-fighter-jet&quot;&gt;Project C&lt;/option&gt;
+          &lt;/select&gt;
+      </code>
+  </pre>
+
+    <p>Use <code>chosenIcon()</code> in place of <code>chosen()</code> passing in the same properties:</p>
+  <pre><code>$(".icon-select").chosenIcon({
+      disable_search_threshold: 10
+      });</code></pre>
+
+
+    <p>All properties of <code>chosen()</code> are available through <code>chosenIcon()</code></p>
+
+
+    <p>
+
+    <h2>Dependencies</h2>
+    <ul>
+        <li>jQuery 1.4+</li>
+        <li><a href="http://github.com/harvesthq/chosen/">Chosen</a></li>
+    </ul>
+
+</div>
+
+<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="chosen/chosen.jquery.js" type="text/javascript"></script>
+<script src="chosenIcon/chosenIcon.jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(".icon-select").chosenIcon({
+        disable_search_threshold: 10
+    });
+</script>
+
+</body>
+</html>

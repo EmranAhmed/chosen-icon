@@ -1,0 +1,15 @@
+.chosenIcon-container .chosen-single span {
+    padding-left : 17px;
+    }
+
+.chosenIcon-container .chosen-single span:before,
+.chosenIcon-container .chosen-results li:before{
+    position    : absolute;
+    content     : attr(data-icon);
+    font-family : FontAwesome;
+    margin-left : -17px;
+    }
+
+.chosenIcon-container .chosen-results li {
+    padding-left : 22px;
+    }
