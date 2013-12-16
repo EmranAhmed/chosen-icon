@@ -1,7 +1,6 @@
 ;
 (function ($) {
 
-
     $.getCSSValue = function (classname, property, pseudo) {
 
         var pseudo = pseudo || null
@@ -16,7 +15,7 @@
         ).getPropertyValue(property);
 
         document.body.removeChild(element);
-        return value;
+        return value.replace(/\"/g,'');
     }
 
 
@@ -33,8 +32,6 @@
             }).each(function (i) {
                     var iconSrc = $(this).attr('data-icon');
                     iconMap[i] = $.trim(iconSrc);
-
-
                 });
 
 
@@ -65,22 +62,12 @@
 
                 if (iconClassName) {
                     var iconContent = $.getCSSValue('.' + iconClassName, 'content', ':before');
-
-
-                    console.log($chosen);
-
                     $chosen.find('.chosen-single span').attr('data-icon', iconContent);
                 }
 
             });
 
-
-
-
-
             $select.trigger('change');
-            //$select.trigger('chosen:updated');
-
 
         });
     }
