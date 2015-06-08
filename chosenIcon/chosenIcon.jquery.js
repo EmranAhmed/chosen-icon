@@ -44,9 +44,9 @@
 
 
             // 3. add data in lis with icon name
-            $select.on('chosen:showing_dropdown chosen:activate', function () {
+            $select.on('chosen:showing_dropdown chosen:activate', function (evt, params) {
                 setTimeout(function () {
-                    $chosen.find('.chosen-results li').each(function (i) {
+                    params.chosen.container.find('.chosen-results li').each(function (i) {
                         var iconClassName = iconMap[i];
                         var iconContent = $.getCSSValue('.' + iconClassName, 'content', ':before');
                         $(this).attr('data-icon', iconContent);
