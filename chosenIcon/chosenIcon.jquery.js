@@ -1,4 +1,3 @@
-;
 (function ($) {
 
     $.getCSSValue = function (classname, property, pseudo) {
@@ -16,7 +15,7 @@
 
         document.body.removeChild(element);
         return value.replace(/\"/g,'');
-    }
+    };
 
 
     $.fn.chosenIcon = function (options) {
@@ -30,9 +29,9 @@
             $select.find('option').filter(function () {
                 return $(this).text();
             }).each(function (i) {
-                    var iconSrc = $(this).attr('data-icon');
-                    iconMap[i] = $.trim(iconSrc);
-                });
+                var iconSrc = $(this).attr('data-icon');
+                iconMap[i] = $.trim(iconSrc);
+            });
 
 
             // 2. Execute chosen plugin
@@ -43,13 +42,16 @@
             $chosen = $select.next().addClass('chosenIcon-container');
 
 
-            // 3. add data in lis with icon name
+            // 3. add data in list with icon name
             $select.on('chosen:showing_dropdown chosen:activate', function () {
                 setTimeout(function () {
                     $chosen.find('.chosen-results li').each(function (i) {
                         var iconClassName = iconMap[i];
-                        var iconContent = $.getCSSValue('.' + iconClassName, 'content', ':before');
-                        $(this).attr('data-icon', iconContent);
+
+                        if (iconClassName) {
+                            var iconContent = $.getCSSValue('.' + iconClassName, 'content', ':before');
+                            $(this).attr('data-icon', iconContent);
+                        }
                     });
                 }, 0);
             });
@@ -63,6 +65,8 @@
                 if (iconClassName) {
                     var iconContent = $.getCSSValue('.' + iconClassName, 'content', ':before');
                     $chosen.find('.chosen-single span').attr('data-icon', iconContent);
+                } else {
+                    $chosen.find('.chosen-single span').removeAttr('data-icon');
                 }
 
             });
